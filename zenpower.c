@@ -41,7 +41,7 @@
 MODULE_DESCRIPTION("AMD ZEN family CPU Sensors Driver");
 MODULE_AUTHOR("Anthony Wang");
 MODULE_LICENSE("GPL");
-MODULE_VERSION("0.2.0");
+MODULE_VERSION("0.2.1");
 
 static bool zen1_calc;
 module_param(zen1_calc, bool, 0);
