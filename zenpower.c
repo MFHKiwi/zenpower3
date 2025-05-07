@@ -35,6 +35,7 @@
 #include <linux/hwmon.h>
 #include <linux/module.h>
 #include <linux/pci.h>
+#include <linux/version.h>
 #include <asm/amd_nb.h>
 
 MODULE_DESCRIPTION("AMD ZEN family CPU Sensors Driver");
@@ -149,6 +150,13 @@ static const struct tctl_offset tctl_offset_table[] = {
 
 static DEFINE_MUTEX(nb_smu_ind_mutex);
 static bool multicpu = false;
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 14, 0)
+static u16 amd_pci_dev_to_node_id(struct pci_dev *pdev)
+{
+	return PCI_SLOT(pdev->devfn) - AMD_NODE0_PCI_SLOT;
+}
+#endif
 
 static umode_t zenpower_is_visible(const void *rdata,
 									enum hwmon_sensor_types type,
