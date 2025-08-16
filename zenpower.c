@@ -36,12 +36,12 @@
 #include <linux/module.h>
 #include <linux/pci.h>
 #include <linux/version.h>
-#include <asm/amd_nb.h>
+#include <asm/amd/nb.h>
 
 MODULE_DESCRIPTION("AMD ZEN family CPU Sensors Driver");
 MODULE_AUTHOR("Anthony Wang");
 MODULE_LICENSE("GPL");
-MODULE_VERSION("0.2.1");
+MODULE_VERSION("0.2.2");
 
 static bool zen1_calc;
 module_param(zen1_calc, bool, 0);
